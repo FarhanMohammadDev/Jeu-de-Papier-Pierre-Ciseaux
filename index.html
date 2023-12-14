@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu de Pierre-Papier-Ciseaux</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="welcomeStyle.css">
+</head>
+
+<body>
+    <!-- -------------------------welcome----------------------- -->
+    <div id="welcome">
+        <div class="scene1" id="scene1">
+            <div class="card">
+                <div class="image"></div>
+                <div class="content">
+                    <main class="main">
+                        <div class="text-2">
+                            <span>Jeu de Pierre-Papier-Ciseaux</span>
+                            <span>Bonjour, je suis <em>Bot</em>. Et toi, comment t'appelles-tu ?</span>
+                        </div>
+                        <div class="text-2">
+                            <div class="input-container">
+                                <input type="text" placeholder="joueur" id="joueur">
+                                <button class="button" id="saveName">Ajouter</button>
+                            </div>
+                        </div>
+                    </main>
+                    <footer>
+                        <p class="date">Créé par Farhan Mohammad</p>
+                    </footer>
+                </div>
+            </div>
+        </div>
+
+        <div class="scene2" id="scene2">
+            <div class="card">
+                <div class="image"></div>
+                <div class="content">
+                    <main class="main">
+                        <div class="text-2">
+                            <span>Jeu de Pierre-Papier-Ciseaux</span>
+                            <span>D'accord <em id="nameJoueur">NameJoueur</em>, veux-tu jouer avec moi ?</span>
+                        </div>
+                        <div class="text-2">
+                            <div class="input-container">
+                                <button class="button" id="startGame">OUI</button>
+                                <button type="button" id="annuler">Annuler</button>
+                            </div>
+                        </div>
+                    </main>
+                    <footer>
+                        <p class="date">Créé par Farhan Mohammad</p>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ------------------------------------------------ -->
+
+    <!-- ======================game================= -->
+    <div class="container" id="container">
+
+        <div class="card" id="container">
+            <div class="image " id="imageEmpty"></div>
+            <div class="image " id="image">
+                <div class="nav">
+                    <div class="leChoix">
+                        <img src="" alt="" id="choixDeUser">
+                    </div>
+                </div>
+                <div class="message" id="msg">
+
+                </div>
+                <div class="nav">
+                    <div class="leChoix">
+                        <img src="" alt="" id="choiDeRobot">
+                    </div>
+                </div>
+            </div>
+
+            <div class="content">
+                <main class="main">
+                    <div class="message" id="msgFinGame"></div>
+
+                    <div class="row" id="resultGame">
+                        <div id="joueurUserRes">
+                            <div class="cardPlayer" id="cardUser">
+                                <div class="profileImage">
+                                    <img src="images/user.png" alt="Pierre">
+                                </div>
+                                <div class="textContainer">
+                                    <p class="name" id="joueurNameRes"></p>
+                                    <p class="profile">Mon Score :<span id="resultVousRes"></span> </p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div>
+                            <img src="images/vs.png" alt="">
+                        </div>
+
+                        <div id="joueurComputerRes">
+                            <div class="cardPlayer" id="cardRobot">
+                                <div class="profileImage">
+                                    <img src="images/Robot-win.png" alt="Pierre" id="computerImgRes" class="imgRobot">
+                                </div>
+                                <div class="textContainer">
+                                    <p class="name">Ordinateur</p>
+                                    <p class="profile">Score : <span id="resultOrdinateurRes">0</span> </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row" id="row1">
+                        <div id="joueurUser">
+                            <div class="cardPlayer">
+                                <div class="profileImage">
+                                    <img src="images/user.png" alt="Pierre">
+                                </div>
+                                <div class="textContainer">
+                                    <p class="name" id="joueurName"></p>
+                                    <p class="profile">Mon Score : <span id="resultVous">0</span> </p>
+                                </div>
+                            </div>
+                            <h3 id="monChoixText"></h3>
+                        </div>
+
+                        <div>
+                            <div id="loader">
+                                <div class="ls-particles ls-part-1"></div>
+                                <div class="ls-particles ls-part-2"></div>
+                                <div class="ls-particles ls-part-3"></div>
+                                <div class="ls-particles ls-part-4"></div>
+                                <div class="ls-particles ls-part-5"></div>
+                                <div class="lightsaber ls-left ls-green"></div>
+                                <div class="lightsaber ls-right ls-red"></div>
+                            </div>
+                            <img src="images/vs.png" alt="Pierre" id="vs">
+                        </div>
+
+                        <div id="joueurComputer">
+                            <div class="cardPlayer">
+                                <div class="profileImage">
+                                    <img src="images/Robot-win.png" alt="Pierre" id="computerImg" class="imgRobot">
+                                </div>
+                                <div class="textContainer">
+                                    <p class="name">Ordinateur</p>
+                                    <p class="profile">Score :<span id="resultOrdinateur"></span> </p>
+                                </div>
+                            </div>
+                            <h3 id="computerChoseText"></h3>
+                        </div>
+                    </div>
+
+
+                    <div class="row" id="btns">
+                        <div class="btn">
+                            <button class="joue" id="Ciseaux" value="Ciseaux">
+                                <img src="images/scissors.png" alt="Ciseaux">
+                            </button>
+                        </div>
+                        <div class="btn">
+                            <button class="joue" id="Papier" value="Papier">
+                                <img src="images/paper.png" alt="Papier">
+                            </button>
+                        </div>
+                        <div class="btn">
+                            <button class="joue" id="Pierre" value="Pierre">
+                                <img src="images/rock.png" alt="Pierre">
+                            </button>
+                        </div>
+                    </div>
+                    <!-- <div class="cardQuitter">
+    
+                    </div> -->
+                </main>
+                <footer id="footerContent">
+
+                    <p class="date">Créé par Farhan Mohammad</p>
+                    <div class="scene" id="Quitter">
+                        <div class="cube">
+                            <span class="side front">Quitter</span>
+                            <span class="side top">Oui</span>
+                        </div>
+                    </div>
+
+                    <div class="scene" id="newGame">
+                        <div class="cube">
+                            <span class="side front">Nouvelle Partie</span>
+                            <span class="side top">Rejouer</span>
+                        </div>
+                    </div>
+
+                </footer>
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- ------------------------------------------------ -->
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
